@@ -6,8 +6,8 @@ function App() {
 
   return (
     <>
-      <div className='backgroud-image'>
-        teste
+      <div className='background-image'>
+        
       </div>
     </>
   )
