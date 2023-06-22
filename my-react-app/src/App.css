@@ -1,0 +1,4 @@
+.background-image {
+  background-image: url('./assets/weather.jpg');
+  background-size: cover;
+}
