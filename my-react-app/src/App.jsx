@@ -18,6 +18,7 @@ function App() {
     const response = await fetch(api_url);
     const jsonData = await response.json();
     setJsonData(jsonData);
+    console.log(jsonData);
   }
 
   return (
@@ -26,8 +27,7 @@ function App() {
         <h1 style={titleStyle}>🐭 White Mouse ☀️ Clima & Tempo ⛅</h1>
         {jsonData && (
           <div>
-            <p>Temperatura: {jsonData.temperature}</p>
-            <p>Umidade: {jsonData.humidity}</p>
+            <p>Temperatura: {jsonData.temperature_2m}</p>
           </div>
         )}
         </div>
