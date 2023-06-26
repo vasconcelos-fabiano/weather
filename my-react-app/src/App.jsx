@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
-const api_url = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m";
+const api_url = "https://api.open-meteo.com/v1/forecast?latitude=-3.72&longitude=-38.54&current_weather=true";
 
 function App() {
   const titleStyle = {
@@ -18,7 +18,6 @@ function App() {
     const response = await fetch(api_url);
     const jsonData = await response.json();
     setJsonData(jsonData);
-    console.log(jsonData);
   }
 
   return (
@@ -27,7 +26,15 @@ function App() {
         <h1 style={titleStyle}>🐭 White Mouse ☀️ Clima & Tempo ⛅</h1>
         {jsonData && (
           <div>
-            <p>Temperatura: {jsonData.temperature_2m}</p>
+            <p>Cidade<br/><input type="text" id='city' placeholder='Digite aqui a sua cidade'></input></p><br></br>
+            <p>Temperatura: {jsonData.current_weather.temperature} C˚</p>
+            <p>Vento: {jsonData.current_weather.windspeed} Km/h</p>
+            <p>Sensação Térmica: </p>
+            <p>Umidade do ar: </p>
+            <p>Temperatura máxima: </p>
+            <p>Temperatura mínima: </p>
+            <p>Pôr-do-sol: </p>
+            <p>Amanhecer: </p>
           </div>
         )}
         </div>
