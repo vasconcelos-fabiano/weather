@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
-const api_url = "https://api.open-meteo.com/v1/forecast?latitude=-3.72&longitude=-38.54&current_weather=true";
+const api_url = "https://api.openweathermap.org/data/3.0/onecall?lat=-3.73&lon=-38.54&exclude=current,minutely,daily,alerts&appid=93ecdd97bfb1bc86ab41c2860a5649a8";
 
 function App() {
   const titleStyle = {
@@ -18,6 +18,7 @@ function App() {
     const response = await fetch(api_url);
     const jsonData = await response.json();
     setJsonData(jsonData);
+    console.log(jsonData.current);
   }
 
   return (
@@ -27,14 +28,14 @@ function App() {
         {jsonData && (
           <div>
             <p>Cidade<br/><input type="text" id='city' placeholder='Digite aqui a sua cidade'></input></p><br></br>
-            <p>Temperatura: {jsonData.current_weather.temperature} C˚</p>
-            <p>Vento: {jsonData.current_weather.windspeed} Km/h</p>
-            <p>Sensação Térmica: </p>
-            <p>Umidade do ar: </p>
-            <p>Temperatura máxima: </p>
-            <p>Temperatura mínima: </p>
-            <p>Pôr-do-sol: </p>
-            <p>Amanhecer: </p>
+            <p>Temperatura:  C˚</p>
+            <p>Vento:  Km/h</p>
+            <p>Sensação Térmica:  C˚</p>
+            <p>Umidade do ar:  %</p>
+            <p>Temperatura máxima:  </p>
+            <p>Temperatura mínima:  </p>
+            <p>Pôr-do-sol:  </p>
+            <p>Amanhecer:  </p>
           </div>
         )}
         </div>
